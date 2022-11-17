@@ -12,7 +12,7 @@ const theme: DefaultTheme = {
 
 const sourceSansPro = Source_Sans_Pro({
   subsets: ["latin"],
-  weight: ["300", "600", "700"]
+  weight: ["300", "400", "600", "700"]
 })
 
 export default function App({ Component, pageProps }: AppProps) {

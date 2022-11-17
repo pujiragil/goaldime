@@ -1,13 +1,8 @@
 import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
-  html,
   body {
-    color: ${({ theme }) => theme.colors.primary};
-    padding: 0;
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-      Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    background: #FBFBFB;
   }
 
   a {
@@ -16,7 +11,10 @@ const GlobalStyle = createGlobalStyle`
   }
 
   * {
+    color: ${({ theme }) => theme.colors.primary};
     box-sizing: border-box;
+    padding: 0;
+    margin: 0;
   }
 `
 

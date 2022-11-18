@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { useState } from "react";
+import { MouseEventHandler, useState } from "react";
 import styled from "styled-components";
 
 const Nav = styled.nav`
@@ -16,7 +16,7 @@ const Nav = styled.nav`
   }
 
   @media screen and (min-width: 1024px) {
-    padding: 20px 2rem;
+    padding: 1rem 2rem;
   }
 `;
 
@@ -47,17 +47,27 @@ const NavToggle = styled(NavIcon)`
   }
 `;
 
-const NavMenu = styled.div`
+interface NavMenuProps {
+  open: boolean;
+}
+
+const NavMenu = styled.div<NavMenuProps>`
   position: absolute;
-  top: 60px;
+  top: 100%;
   left: 0;
+  transform: ${({ open }) => open ? "translateX(0)" : "translateX(-100%)"};
+  transition: all 0.4s ease-in;
   background-color: #5b93ff;
   width: 100%;
+  height: calc(100vh - 100%);
   padding: 1rem;
   display: flex;
   flex-direction: column;
+  gap: 1rem;
+  z-index: 5;
 
   @media screen and (min-width: 1024px) {
+    transform: unset;
     position: static;
     width: fit-content;
     background: transparent;
@@ -69,53 +79,79 @@ const NavMenu = styled.div`
 `;
 
 const LinkItem = styled.a`
-  border-bottom: 1px solid transparent;
   font-size: 18px;
   transition: all 0.3s ease-in-out;
   width: fit-content;
   color: #fbfbfb;
 
-  &:hover {
-    color: ${({ theme }) => theme.colors.secondary};
-    border-color: ${({ theme }) => theme.colors.secondary};
-  }
-
   @media screen and (min-width: 1024px) {
+    opacity: 0.7;
     color: ${({ theme }) => theme.colors.primary};
-  }
-`;
 
-const NavDropdown = styled.div`
-  position: relative;
-  display: flex;
-  align-items: center;
-  color: #fbfbfb;
-  font-size: 18px;
-  gap: 4px;
-  cursor: pointer;
-
-  & > img {
-    width: 12px;
-    height: 6px;
-    object-fit: cover;
-  }
-
-  @media screen and (min-width: 1024px) {
-    color: ${({ theme }) => theme.colors.primary};
+    &:hover {
+      opacity: 1;
+    }
   }
 `;
 
 const Dropdown = styled.div`
-  position: absolute;
-  background: #fbfbfb;
-  padding: 1rem;
-  border-radius: 15px;
-  border: 1px solid #e6e6ea;
-  top: 40px;
-  width: 150px;
+  position: relative;
+  font-size: 18px;
+`;
+
+interface DropdownToggleProps {
+  active: boolean;
+}
+
+const DropdownToggle = styled.div<DropdownToggleProps>`
   display: flex;
-  gap: 0.5rem;
+  gap: 8px;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  color: #fbfbfb;
+  width: fit-content;
+
+  & > span {
+    display: block;
+    width: 12px;
+    height: 8px;
+    background-image: url("/dropdown-white.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+
+  @media screen and (min-width: 1024px) {
+    opacity: ${({ active }) => (active ? 1 : 0.7)};
+    color: ${({ theme }) => theme.colors.primary};
+
+    & > span {
+      background-image: url("/dropdown-black.svg");
+    }
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+`;
+
+const DropdownMenu = styled.div`
+  display: flex;
   flex-direction: column;
+  padding: 1rem;
+  gap: 1rem;
+
+  @media screen and (min-width: 1024px) {
+    position: absolute;
+    background: #fbfbfb;
+    padding: 1rem;
+    border-radius: 15px;
+    border: 1px solid #e6e6ea;
+    top: 40px;
+    width: 150px;
+    gap: 0.5rem;
+  }
 `;
 
 const NavButtonWrapper = styled.div`
@@ -142,6 +178,33 @@ const NavButton = styled.button<NavButtonProps>`
   cursor: pointer;
 `;
 
+export default function Navbar() {
+  const [isDropdown, setIsDropdown] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleDropdown = () => setIsDropdown((prev) => !prev);
+  const handleOpen = () => setIsOpen((prev) => !prev);
+
+  return (
+    <Nav>
+      <NavIcon src="goaldime.svg" />
+      <NavToggle src="hamburger.svg" onClick={handleOpen} />
+
+      <NavMenu open={isOpen}>
+        <NavLink href={""} text={"Home"} />
+        <NavDropdown onDropdown={handleDropdown} dropdown={isDropdown} />
+        <NavLink href={""} text={"Pricing"} />
+        <NavLink href={""} text={"Contact"} />
+      </NavMenu>
+
+      <NavButtonWrapper>
+        <NavButton primary={false}>Log In</NavButton>
+        <NavButton primary={true}>Sign Up</NavButton>
+      </NavButtonWrapper>
+    </Nav>
+  );
+}
+
 interface NavLinkProps {
   href: string;
   text: string;
@@ -155,39 +218,26 @@ const NavLink = ({ href, text }: NavLinkProps) => {
   );
 };
 
-export default function Navbar() {
-  const [isDropdown, setIsDropdown] = useState(false);
-
-  const handleDropdown = () => setIsDropdown((prev) => !prev);
-
-  return (
-    <Nav>
-      <NavIcon src="goaldime.svg" />
-      <NavToggle src="hamburger.svg" />
-
-      <NavMenu>
-        <NavLink href={""} text={"Home"} />
-
-        <NavDropdown onClick={handleDropdown}>
-          Features
-          <img src="dropdown.svg" alt="dropdown" />
-          {isDropdown && (
-            <Dropdown>
-              <NavLink href={""} text={"Menu One"} />
-              <NavLink href={""} text={"Menu Two"} />
-              <NavLink href={""} text={"Menu Three"} />
-            </Dropdown>
-          )}
-        </NavDropdown>
-
-        <NavLink href={""} text={"Pricing"} />
-        <NavLink href={""} text={"Contact"} />
-      </NavMenu>
-
-      <NavButtonWrapper>
-        <NavButton primary={false}>Log In</NavButton>
-        <NavButton primary={true}>Sign Up</NavButton>
-      </NavButtonWrapper>
-    </Nav>
-  );
+interface NavDropdownProps {
+  onDropdown: MouseEventHandler;
+  dropdown: boolean;
 }
+
+const NavDropdown = ({ onDropdown, dropdown }: NavDropdownProps) => {
+  return (
+    <Dropdown>
+      <DropdownToggle onClick={onDropdown} active={dropdown}>
+        Features
+        <span></span>
+      </DropdownToggle>
+
+      {dropdown && (
+        <DropdownMenu>
+          <NavLink href={""} text={"Menu 1"} />
+          <NavLink href={""} text={"Menu 2"} />
+          <NavLink href={""} text={"Menu 3"} />
+        </DropdownMenu>
+      )}
+    </Dropdown>
+  );
+};

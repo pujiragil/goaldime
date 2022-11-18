@@ -22,7 +22,7 @@ const Nav = styled.nav`
 
 const NavIcon = styled.img`
   width: auto;
-  height: 25px;
+  height: 28px;
   object-fit: cover;
   cursor: pointer;
 

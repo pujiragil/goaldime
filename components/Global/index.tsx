@@ -1,28 +1,35 @@
 import styled from "styled-components";
 
-interface ContainerProps {
-  textAlign?: string;
-  gap?: string;
-}
-
-export const Container = styled.div<ContainerProps>`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+export const Container = styled.div`
   padding: 80px 1rem;
-  text-align: ${({ textAlign }) => textAlign ? textAlign : "left"};
-  gap: ${({ gap }) => gap ? gap : "60px"};
+
+  @media screen and (min-width: 768px) {
+    padding: 100px 20px;
+  }
+
+  @media screen and (min-width: 1024px) {
+    padding: 100px 2rem;
+  }
 `
 
 interface TitleProps {
-  fontSize?: string;
+  smSize?: string;
+  mdSize?: string;
+  xlSize?: string;
 }
 
 export const Title = styled.h1<TitleProps>`
   color: ${({ theme }) => theme.colors.primary};
   font-weight: 700;
-  font-size: ${({ fontSize }) => fontSize ? fontSize : "40px"};
+  font-size: ${({ smSize }) => smSize ? smSize : "2.5rem"};
+
+  @media screen and (min-width: 768px) {
+    font-size: ${({ mdSize }) => mdSize ? mdSize : "3rem"};
+  }
+
+  @media screen and (min-width: 1024px) {
+    font-size: ${({ xlSize }) => xlSize ? xlSize : "3.5rem"};
+  }
 `
 
 interface ButtonProps {
@@ -30,14 +37,53 @@ interface ButtonProps {
   background?: string;
   color?: string;
   fontSize?: string;
+  mdWidth?: string; 
 }
 
 export const Button = styled.button<ButtonProps>`
+  cursor: pointer;
   outline: none;
   border: none;
   border-radius: 999px;
+  width: fit-content;
   padding: ${({ padding }) => padding ? padding : "24px 30px"};
   background: ${({ background, theme }) => background ? background : theme.colors.secondary};
   color: ${({ color }) => color ? color : "#FFF"};
   font-size: ${({ fontSize }) => fontSize ? fontSize : "18px"};
+
+  &.btn-show {
+    display: none;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: ${({ mdWidth }) => mdWidth ? mdWidth : "fit-content"};
+  }
+
+  @media screen and (min-width: 1024px) {
+    &.btn-show {
+      display: block;
+    }
+
+    &.btn-hidden {
+      display: none;
+    }
+  }
+`
+
+interface CircleProps {
+  smSize?: string;
+  mdSize?: string;
+}
+
+export const Circle = styled.span<CircleProps>`
+  width: ${({ smSize }) => smSize ? smSize : "44px"}; 
+  height: ${({ smSize }) => smSize ? smSize : "44px"};
+  border-radius: 100%; 
+  background: #F0F5FF;
+  display: block;
+
+  @media screen and (min-width: 768px) {
+    height: ${({ mdSize }) => mdSize ? mdSize : "78px"};
+    width: ${({ mdSize }) => mdSize ? mdSize : "78px"};
+  }
 `

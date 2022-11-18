@@ -67,7 +67,8 @@ const NavMenu = styled.div<NavMenuProps>`
   z-index: 5;
 
   @media screen and (min-width: 1024px) {
-    transform: unset;
+    transition: none;
+    transform: none;
     position: static;
     width: fit-content;
     background: transparent;

@@ -18,7 +18,6 @@ const DashboardImage = styled.img`
   object-fit: cover;
   top: 0;
   right: -15%;
-  z-index: 10;
 
   @media screen and (min-width: 768px) {
     position: static;

@@ -19,7 +19,7 @@ const FeaturesHeader = styled.section`
 const FeaturesCard = styled.section`
   display: flex;
   flex-direction: column;
-  gap: 60px;
+  gap: 100px;
 `;
 
 const Card = styled.div`
@@ -92,7 +92,7 @@ const ContentButton = styled.button`
   display: flex;
   align-items: center;
   gap: 10px;
-  color: #FBFBFB;
+  color: #fbfbfb;
   font-size: 18px;
   width: fit-content;
   cursor: pointer;
@@ -101,30 +101,35 @@ const ContentButton = styled.button`
     width: 20px;
     height: 20px;
   }
-`
+`;
 
 const CardImage = styled.div`
   display: flex;
   justify-content: center;
-`
+  align-items: center;
+`;
 
 const Image = styled.img`
   width: 100%;
   height: auto;
   object-fit: cover;
-`
+`;
 
-function CardItem() {
+interface CardItemProps {
+  descSubtitle: string;
+  descTitle: string;
+  imageLink: string;
+}
+
+function CardItem({ descSubtitle, descTitle, imageLink }: CardItemProps) {
   return (
     <Card>
       <CardContent>
         <ContentDesc>
           <DescSubtitle className={inter.className}>
-            Sales Performance
+            {descSubtitle}
           </DescSubtitle>
-          <DescTitle>
-            Build high performance sales for your e-commarce products
-          </DescTitle>
+          <DescTitle>{descTitle}</DescTitle>
           <DescParagraph className={inter.className}>
             We need to button up our approach. I don't want to drain the whole
             swamp, i just want to shoot some alligators we need this overall to
@@ -140,15 +145,21 @@ function CardItem() {
           </List>
           <List>
             <ListIcon src="checklist.svg" />
-            <ListText className={inter.className}>Increase conversion rate</ListText>
+            <ListText className={inter.className}>
+              Increase conversion rate
+            </ListText>
           </List>
           <List>
             <ListIcon src="checklist.svg" />
-            <ListText className={inter.className}>Increase conversion rate</ListText>
+            <ListText className={inter.className}>
+              Increase conversion rate
+            </ListText>
           </List>
           <List>
             <ListIcon src="checklist.svg" />
-            <ListText className={inter.className}>Increase conversion rate</ListText>
+            <ListText className={inter.className}>
+              Increase conversion rate
+            </ListText>
           </List>
         </ContentList>
 
@@ -156,9 +167,9 @@ function CardItem() {
           Get Started <img src="arrow-button.svg" alt="arrow-button" />
         </ContentButton>
       </CardContent>
-      
+
       <CardImage>
-        <Image src="/images/features-1.png" alt="feature-image" />
+        <Image src={imageLink} alt="feature-image" />
       </CardImage>
     </Card>
   );
@@ -177,7 +188,21 @@ export default function Features() {
         </FeaturesHeader>
 
         <FeaturesCard>
-          <CardItem />
+          <CardItem
+            descSubtitle="Sales Performance"
+            descTitle="Build high performance sales for your e-commarce products"
+            imageLink="/images/feature-1.png"
+          />
+          <CardItem
+            descSubtitle="Customizable"
+            descTitle="Easy to use and fully customizable pages editor"
+            imageLink="/images/feature-2.png"
+          />
+          <CardItem
+            descSubtitle="Fastest Loading Speed"
+            descTitle="Fastest page load speed for extra conversion"
+            imageLink="/images/feature-3.png"
+          />
         </FeaturesCard>
       </FeaturesWrapper>
     </Container>

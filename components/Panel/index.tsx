@@ -32,6 +32,17 @@ const PanelContent = styled(PanelHeader)`
   align-items: flex-start;
 `
 
+const PanelHero = styled.div`
+  display: flex;
+  justify-content: center;
+`
+
+const Hero = styled.img`
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+`
+
 interface CardProps {
   primary: boolean;
 }
@@ -81,7 +92,7 @@ interface PanelItemProps {
 function PanelItem({ primary, imageLink , title }: PanelItemProps) {
   return (
     <Card primary={primary}>
-      <CardIcon src={imageLink} />
+      <CardIcon src={imageLink} alt={"panel icon"} />
 
       <CardContent>
         <CardTitle primary={primary}>{title}</CardTitle>
@@ -111,6 +122,10 @@ export default function Panel() {
           <PanelItem primary={false} imageLink={"/panel-2.svg"} title={"Wide rang of functions"} />
           <PanelItem primary={true} imageLink={"/panel-3.svg"} title={"Customizable features"} />
         </PanelContent>
+
+        <PanelHero>
+          <Hero src="/images/dashboard.png" alt="panel hero" />
+        </PanelHero>
       </PanelWrapper>
     </Container>
   )

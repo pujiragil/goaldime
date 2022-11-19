@@ -38,6 +38,16 @@ export const Title = styled.h1<TitleProps>`
   }
 `
 
+export const Subtitle = styled.p`
+  font-size: 20px;
+  font-weight: 500;
+  color: ${({ theme }) => theme.colors.subtitle};
+`
+
+export const Highlight = styled.span`
+  color: ${({ theme }) => theme.colors.secondary};
+`
+
 interface ButtonProps {
   padding?: string;
   background?: string;

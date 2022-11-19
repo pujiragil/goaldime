@@ -31,7 +31,7 @@ const FeaturesCard = styled.div`
 const Card = styled.div`
   cursor: pointer;
   padding: 60px 20px;
-  background: #f5f6f9;
+  background: #F5F6F9;
   border-radius: 1rem;
   display: flex;
   flex-direction: column;

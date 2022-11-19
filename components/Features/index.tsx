@@ -22,13 +22,24 @@ const FeaturesCard = styled.section`
   gap: 100px;
 `;
 
-const Card = styled.div`
+interface CardProps {
+  reserve: boolean;
+}
+
+const Card = styled.div<CardProps>`
   display: flex;
   flex-direction: column;
   gap: 60px;
+
+  @media screen and (min-width: 1024px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: ${({ reserve }) => reserve ? `"right left"` : `"left right"`};
+  }
 `;
 
 const CardContent = styled.div`
+  grid-area: left;
   display: flex;
   flex-direction: column;
   gap: 40px;
@@ -48,11 +59,19 @@ const DescSubtitle = styled.p`
   width: fit-content;
   font-size: 18px;
   color: ${({ theme }) => theme.colors.secondary};
+
+  @media screen and (min-width: 768px) {
+    font-size: 20px;
+  }
 `;
 
 const DescTitle = styled.h2`
   font-weight: 600;
   font-size: 28px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 40px;
+  }
 `;
 
 const DescParagraph = styled.p`
@@ -113,17 +132,22 @@ const Image = styled.img`
   width: 100%;
   height: auto;
   object-fit: cover;
+
+  @media screen and (min-width: 768px) {
+    width: 80%;
+  }
 `;
 
 interface CardItemProps {
+  reserve: boolean;
   descSubtitle: string;
   descTitle: string;
   imageLink: string;
 }
 
-function CardItem({ descSubtitle, descTitle, imageLink }: CardItemProps) {
+function CardItem({ reserve, descSubtitle, descTitle, imageLink }: CardItemProps) {
   return (
-    <Card>
+    <Card reserve={reserve}>
       <CardContent>
         <ContentDesc>
           <DescSubtitle className={inter.className}>
@@ -181,7 +205,7 @@ export default function Features() {
       <FeaturesWrapper>
         <FeaturesHeader>
           <Subtitle className={inter.className}>FEATURES</Subtitle>
-          <Title>
+          <Title mdSize="54px">
             All the tools you need to <Highlight>scale-up</Highlight> your
             e-commerce sales in one place
           </Title>
@@ -189,16 +213,19 @@ export default function Features() {
 
         <FeaturesCard>
           <CardItem
+            reserve={false}
             descSubtitle="Sales Performance"
             descTitle="Build high performance sales for your e-commarce products"
             imageLink="/images/feature-1.png"
           />
           <CardItem
+            reserve={true}
             descSubtitle="Customizable"
             descTitle="Easy to use and fully customizable pages editor"
             imageLink="/images/feature-2.png"
           />
           <CardItem
+            reserve={false}
             descSubtitle="Fastest Loading Speed"
             descTitle="Fastest page load speed for extra conversion"
             imageLink="/images/feature-3.png"

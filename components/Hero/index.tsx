@@ -23,8 +23,10 @@ const HeroContent = styled.div`
   display: flex;
   flex-direction: column;
   text-align: center;
+  align-items: center;
 
   @media screen and (min-width: 1024px) {
+    align-items: flex-start;
     text-align: left;
     gap: 60px;
   }
@@ -92,7 +94,7 @@ export default function Hero() {
     <Container>
       <HeroWrapper>
         <HeroContent>
-          <Title mdSize="74px" xlSize="74px">We Help you to Grow Your Business Faster</Title>
+          <Title mdSize="74px" xlSize="4rem" mdWidth="75%" lgWidth="90%">We Help you to Grow Your Business Faster</Title>
           <Button mdWidth={"60%"} className={`${inter.className} btn-show`}>
             Try 7 days for free
           </Button>

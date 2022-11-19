@@ -5,6 +5,7 @@ import styled from "styled-components"
 const Container = styled.main`
   max-width: 1440px;
   margin: 0 auto;
+  height: auto;
 `
 
 export interface LayoutProps {

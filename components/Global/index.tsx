@@ -16,19 +16,25 @@ interface TitleProps {
   smSize?: string;
   mdSize?: string;
   xlSize?: string;
+  smWidth?: string;
+  mdWidth?: string;
+  lgWidth?: string;
 }
 
 export const Title = styled.h1<TitleProps>`
   color: ${({ theme }) => theme.colors.primary};
   font-weight: 700;
   font-size: ${({ smSize }) => smSize ? smSize : "2.5rem"};
+  width: ${({ smWidth }) => smWidth ? smWidth : "100%"};
 
   @media screen and (min-width: 768px) {
     font-size: ${({ mdSize }) => mdSize ? mdSize : "3rem"};
+    width: ${({ mdWidth }) => mdWidth ? mdWidth : "100%"};
   }
 
   @media screen and (min-width: 1024px) {
     font-size: ${({ xlSize }) => xlSize ? xlSize : "3.5rem"};
+    width: ${({ lgWidth }) => lgWidth ? lgWidth : "100%"};
   }
 `
 

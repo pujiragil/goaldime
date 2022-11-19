@@ -20,6 +20,12 @@ const FeaturesCard = styled.div`
   display: flex;
   flex-direction: column;
   gap: 2rem;
+
+  @media screen and (min-width: 1024px) {
+    display: grid;
+    gap: 100px 2rem;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 `;
 
 const Card = styled.div`
@@ -36,6 +42,10 @@ const Card = styled.div`
   &:hover {
     background: #FBFBFB;
     box-shadow: 20px 40px 40px 10px rgba(23, 23, 23, 0.08);
+  }
+
+  @media screen and (min-width: 1024px) {
+    padding: 80px 20px;
   }
 `;
 
@@ -96,7 +106,7 @@ export default function MoreFeatures() {
       <FeaturesWrapper>
         <FeaturesHeader>
           <Subtitle className={inter.className}>MORE FEATURES</Subtitle>
-          <Title>
+          <Title mdSize="54px" lgSize="64px" lgWidth="60%">
             Even more features that <Highlight>benefit</Highlight> your team
           </Title>
         </FeaturesHeader>

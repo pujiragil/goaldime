@@ -205,7 +205,7 @@ export default function Features() {
       <FeaturesWrapper>
         <FeaturesHeader>
           <Subtitle className={inter.className}>FEATURES</Subtitle>
-          <Title mdSize="54px">
+          <Title mdSize="54px" lgSize="64px">
             All the tools you need to <Highlight>scale-up</Highlight> your
             e-commerce sales in one place
           </Title>

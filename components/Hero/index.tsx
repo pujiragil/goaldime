@@ -94,7 +94,7 @@ export default function Hero() {
     <Container>
       <HeroWrapper>
         <HeroContent>
-          <Title mdSize="74px" xlSize="4rem" mdWidth="75%" lgWidth="90%">We Help you to Grow Your Business Faster</Title>
+          <Title mdSize="74px" lgSize="74px" mdWidth="75%">We Help you to Grow Your Business Faster</Title>
           <Button mdWidth={"60%"} className={`${inter.className} btn-show`}>
             Try 7 days for free
           </Button>

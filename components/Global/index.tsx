@@ -15,7 +15,7 @@ export const Container = styled.div`
 interface TitleProps {
   smSize?: string;
   mdSize?: string;
-  xlSize?: string;
+  lgSize?: string;
   smWidth?: string;
   mdWidth?: string;
   lgWidth?: string;
@@ -33,7 +33,7 @@ export const Title = styled.h1<TitleProps>`
   }
 
   @media screen and (min-width: 1024px) {
-    font-size: ${({ xlSize }) => xlSize ? xlSize : "3.5rem"};
+    font-size: ${({ lgSize }) => lgSize ? lgSize : "3.5rem"};
     width: ${({ lgWidth }) => lgWidth ? lgWidth : "100%"};
   }
 `

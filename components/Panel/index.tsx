@@ -57,12 +57,16 @@ const Paragraph = styled(Subtitle)`
   &.subparagraph {
     font-size: 18px;
     font-weight: 300;
+    width: 100%;
   }
 
   @media screen and (min-width: 768px) {
     font-weight: 400;
     font-size: 20px;
+  }
 
+  @media screen and (min-width: 1024px) {
+    width: 60%;
   }
 `
 
@@ -103,44 +107,56 @@ const Hero = styled.img`
     left: -190%;
   }
 
+  @media screen and (min-width: 1040px) {
+    left: -175%;
+  }
+
+  @media screen and (min-width: 1050px) {
+    left: -165%;
+  }
+
   @media screen and (min-width: 1074px) {
-    left: -170%;
+    left: -155%;
+  }
+
+  @media screen and (min-width: 1082px) {
+    left: -145%;
   }
 
   @media screen and (min-width: 1098px) {
-    left: -160%;
+    left: -135%;
+  }
+
+  @media screen and (min-width: 1110px) {
+    left: -120%;
   }
 
   @media screen and (min-width: 1120px) {
-    left: -150%;
-  }
-
-  @media screen and (min-width: 1148px) {
-    left: -140%;
+    left: -115%;
   }
 
   @media screen and (min-width: 1174px) {
-    left: -130%;
-  }
-
-  @media screen and (min-width: 1224px) {
     left: -110%;
   }
 
+  @media screen and (min-width: 1224px) {
+    left: -100%;
+  }
+
   @media screen and (min-width: 1274px) {
-    left: -100%
+    left: -95%
   }
 
   @media screen and (min-width: 1344px) {
-    left: -90%;
-  }
-
-  @media screen and (min-width: 1360px) {
     left: -80%;
   }
 
+  @media screen and (min-width: 1360px) {
+    left: -70%;
+  }
+
   @media screen and (min-width: 1384px) {
-    left: -75%;
+    left: -65%;
   }
 
   @media screen and (min-width: 1404px) {
@@ -169,7 +185,7 @@ const Card = styled.div<CardProps>`
   }
 
   @media screen and (min-width: 1024px) {
-    gap: 40px;
+    gap: 20px;
   }
 `
 
@@ -183,6 +199,11 @@ const CardContent = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
+
+  @media screen and (min-width: 768px) {
+    padding-left: 2rem;
+    border-left: 1px solid #A5C4FF;
+  }
 `
 
 interface CardTitleProps {
@@ -204,6 +225,10 @@ const CardParagraph = styled(Paragraph)`
 
   @media screen and (min-width: 768px) {
     width: 60%;
+  }
+
+  @media screen and (min-width: 1024px) {
+    width: 100%;
   }
 `
 

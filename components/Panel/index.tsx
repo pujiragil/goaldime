@@ -6,6 +6,18 @@ const PanelWrapper = styled.section`
   display: flex;
   flex-direction: column;
   gap: 60px;
+
+  @media screen and (min-width: 768px) {
+    gap: 80px;
+  }
+
+  @media screen and (min-width: 1024px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "title title"
+    "hero subheading"
+    "hero card";
+  }
 `
 
 const PanelHeader = styled.div`
@@ -14,6 +26,16 @@ const PanelHeader = styled.div`
   gap: 24px;
   align-items: center;
   text-align: center;
+
+  @media screen and (min-width: 1024px) {
+    &:nth-child(1) {
+      grid-area: title;
+    }
+
+    &:nth-child(2) {
+      grid-area: subheading;
+    }
+  }
 `
 
 const SubHeading = styled.h2`
@@ -36,11 +58,20 @@ const Paragraph = styled(Subtitle)`
 const PanelContent = styled(PanelHeader)`
   text-align: left;
   align-items: flex-start;
+
+  @media screen and (min-width: 1024px) {
+    grid-area: card;
+  }
 `
 
 const PanelHero = styled.div`
   display: flex;
   justify-content: center;
+
+  @media screen and (min-width: 1024px) {
+    grid-area: hero;
+    position: relative;
+  }
 `
 
 const Hero = styled.img`
@@ -49,7 +80,11 @@ const Hero = styled.img`
   object-fit: cover;
 
   @media screen and (min-width: 768px) {
-    width: 90%;
+    height: 100%;
+    width: auto;
+    position: absolute;
+    top: 0;
+    left: -80%;
   }
 `
 
@@ -71,6 +106,10 @@ const Card = styled.div<CardProps>`
     flex-direction: row;
     align-items: center;
     gap: 80px;
+  }
+
+  @media screen and (min-width: 1024px) {
+    gap: 40px;
   }
 `
 
@@ -126,7 +165,7 @@ export default function Panel() {
       <PanelWrapper>
         <PanelHeader>
           <Subtitle className={inter.className}>CONTROL PANEL</Subtitle>
-          <Title mdSize="64px">User <Highlight>Friendly</Highlight> Control Panel</Title>
+          <Title mdSize="64px" lgSize="64px">User <Highlight>Friendly</Highlight> Control Panel</Title>
           <Paragraph className={inter.className}>The control panel was crafted using the best design techniques to let you have control of everything</Paragraph>
         </PanelHeader>
 

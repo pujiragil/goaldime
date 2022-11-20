@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { inter } from "../Font";
 import { Container, Highlight, Subtitle, Title } from "../Global";
 
 const PanelWrapper = styled.section`
@@ -25,6 +26,11 @@ const Paragraph = styled(Subtitle)`
   color: #4A4A57;
   font-size: 18px;
   font-weight: 300;
+
+  @media screen and (min-width: 768px) {
+    font-weight: 400;
+    font-size: 20px;
+  }
 `
 
 const PanelContent = styled(PanelHeader)`
@@ -41,6 +47,10 @@ const Hero = styled.img`
   width: 100%;
   height: auto;
   object-fit: cover;
+
+  @media screen and (min-width: 768px) {
+    width: 90%;
+  }
 `
 
 interface CardProps {
@@ -48,12 +58,20 @@ interface CardProps {
 }
 
 const Card = styled.div<CardProps>`
+  width: 100%;
   background: ${({ primary }) => primary ? "#E5EEFF" : "#FFF8E5"};
   padding: 20px;
   display: flex;
   flex-direction: column;
   gap: 24px;
   border-radius: 1rem;
+
+  @media screen and (min-width: 768px) {
+    padding: 40px;
+    flex-direction: row;
+    align-items: center;
+    gap: 80px;
+  }
 `
 
 const CardIcon = styled.img`
@@ -96,7 +114,7 @@ function PanelItem({ primary, imageLink , title }: PanelItemProps) {
 
       <CardContent>
         <CardTitle primary={primary}>{title}</CardTitle>
-        <CardParagraph>Phasellus nec meligula. Cras vel intedum nisl. Inid ante orci.</CardParagraph>
+        <CardParagraph className={inter.className}>Phasellus nec meligula. Cras vel intedum nisl. Inid ante orci.</CardParagraph>
       </CardContent>
     </Card>
   )
@@ -107,14 +125,14 @@ export default function Panel() {
     <Container>
       <PanelWrapper>
         <PanelHeader>
-          <Subtitle>CONTROL PANEL</Subtitle>
-          <Title>User <Highlight>Friendly</Highlight> Control Panel</Title>
-          <Paragraph>The control panel was crafted using the best design techniques to let you have control of everything</Paragraph>
+          <Subtitle className={inter.className}>CONTROL PANEL</Subtitle>
+          <Title mdSize="64px">User <Highlight>Friendly</Highlight> Control Panel</Title>
+          <Paragraph className={inter.className}>The control panel was crafted using the best design techniques to let you have control of everything</Paragraph>
         </PanelHeader>
 
         <PanelHeader>
           <SubHeading>We manage all those things by some different way</SubHeading>
-          <Paragraph>Laboriosam aute dolor, culpa. Numquam aspernatur but ex so perspiciatis eaque sint. Architecto occaecat or veritatis but mollit so aut so irure. Do proident voluptas but non. Et consequuntur yet fugit est.</Paragraph>
+          <Paragraph className={inter.className}>Laboriosam aute dolor, culpa. Numquam aspernatur but ex so perspiciatis eaque sint. Architecto occaecat or veritatis but mollit so aut so irure. Do proident voluptas but non. Et consequuntur yet fugit est.</Paragraph>
         </PanelHeader>
 
         <PanelContent>

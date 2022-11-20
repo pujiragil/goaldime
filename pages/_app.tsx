@@ -1,29 +1,28 @@
 import type { AppProps } from "next/app";
-import { Source_Sans_Pro } from "@next/font/google";
 import { ThemeProvider, DefaultTheme } from "styled-components";
+import { inter, lato, sourceSansPro } from "../components/Font";
 import GlobalStyle from "../components/globalstyles";
 
 const theme: DefaultTheme = {
   colors: {
     primary: "#0F0F0F",
     secondary: "#5B93FF",
-    subtitle: "#FFC327"
+    subtitle: "#FFC327",
   },
 };
-
-const sourceSansPro = Source_Sans_Pro({
-  subsets: ["latin"],
-  weight: ["300", "400", "600", "700"]
-})
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
-      <main className={sourceSansPro.className}>
-        <ThemeProvider theme={theme}>
-          <GlobalStyle />
-          <Component {...pageProps} />
-        </ThemeProvider>
+      <main className={sourceSansPro.variable}>
+        <main className={inter.variable}>
+          <main className={lato.variable}>
+            <ThemeProvider theme={theme}>
+              <GlobalStyle />
+              <Component {...pageProps} />
+            </ThemeProvider>
+          </main>
+        </main>
       </main>
     </>
   );

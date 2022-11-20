@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { inter } from "../Font";
 import { Button, Circle, Container, Title } from "../Global";
 
 const HeroWrapper = styled.div`
@@ -30,14 +29,14 @@ const HeroContent = styled.div`
     text-align: left;
     gap: 60px;
   }
-`
+`;
 
 const HeroImageWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
-`
+`;
 
 const HeroImage = styled.img`
   width: 100%;
@@ -69,7 +68,7 @@ const CircleSm = styled.div`
   @media screen and (min-width: 1024px) {
     left: 50%;
   }
-`
+`;
 
 const CircleLg = styled.div`
   position: absolute;
@@ -87,15 +86,17 @@ const CircleLg = styled.div`
     top: -15%;
     left: -10%;
   }
-`
+`;
 
 export default function Hero() {
   return (
     <Container>
       <HeroWrapper>
         <HeroContent>
-          <Title mdSize="74px" lgSize="74px" mdWidth="75%">We Help you to Grow Your Business Faster</Title>
-          <Button mdWidth={"60%"} className={`${inter.className} btn-show`}>
+          <Title mdSize="74px" lgSize="74px" mdWidth="75%">
+            We Help you to Grow Your Business Faster
+          </Title>
+          <Button mdWidth={"60%"} className={"btn-show"}>
             Try 7 days for free
           </Button>
         </HeroContent>
@@ -104,12 +105,12 @@ export default function Hero() {
           <HeroImage src={"hero.svg"} />
         </HeroImageWrapper>
 
-        <Button mdWidth={"60%"} className={`${inter.className} btn-hidden`}>
+        <Button mdWidth={"60%"} className={"btn-hidden"}>
           Try 7 days for free
         </Button>
 
         <CircleSm>
-          <Circle smSize="44px"/>
+          <Circle smSize="44px" />
         </CircleSm>
 
         <CircleLg>

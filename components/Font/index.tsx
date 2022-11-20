@@ -1,7 +1,16 @@
-import { Inter, Lato } from "@next/font/google";
+import { Inter, Lato, Source_Sans_Pro } from "@next/font/google";
 
 export const inter = Inter({
-  subsets: ["latin"],
+  variable: "--inter-font",
   weight: ["300", "400", "500", "600", "700"],
 });
-export const lato = Lato({ subsets: ["latin"], weight: ["400"] });
+
+export const sourceSansPro = Source_Sans_Pro({
+  variable: "--source-font",
+  weight: ["600", "700"],
+});
+
+export const lato = Lato({
+  variable: "--lato-font",
+  weight: ["400"],
+});

@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { inter } from "../Font";
 import { Container, Highlight, Subtitle, Title } from "../Global";
 
 const FeaturesWrapper = styled.section`
@@ -38,6 +37,7 @@ const Card = styled.div`
   gap: 40px;
   color: ${({ theme }) => theme.colors.primary};
   transition: all 0.3s ease-in-out;
+  font-family: var(--inter-font);
 
   &:hover {
     background: #FBFBFB;
@@ -84,7 +84,7 @@ interface CardItemProps {
 
 function CardItem({ cardImgLink, cardTitle }: CardItemProps) {
   return (
-    <Card className={inter.className}>
+    <Card>
       <CardIcon src={cardImgLink} />
 
       <CardContent>
@@ -105,7 +105,7 @@ export default function MoreFeatures() {
     <Container>
       <FeaturesWrapper>
         <FeaturesHeader>
-          <Subtitle className={inter.className}>MORE FEATURES</Subtitle>
+          <Subtitle>MORE FEATURES</Subtitle>
           <Title mdSize="54px" lgSize="64px" lgWidth="60%">
             Even more features that <Highlight>benefit</Highlight> your team
           </Title>

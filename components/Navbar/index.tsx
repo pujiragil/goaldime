@@ -10,6 +10,7 @@ const Nav = styled.nav`
   align-items: center;
   border-bottom: 1px solid #e6e6ea;
   font-weight: 400;
+  font-family: var(--inter-font);
 
   @media screen and (min-width: 768px) {
     padding: 30px 20px;

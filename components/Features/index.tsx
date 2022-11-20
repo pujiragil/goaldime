@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { inter } from "../Font";
 import { Container, Highlight, Subtitle, Title } from "../Global";
 
 const FeaturesWrapper = styled.main`
@@ -30,6 +29,7 @@ const Card = styled.div<CardProps>`
   display: flex;
   flex-direction: column;
   gap: 60px;
+  font-family: var(--inter-font);
 
   @media screen and (min-width: 1024px) {
     display: grid;
@@ -58,6 +58,7 @@ const DescSubtitle = styled.p`
   padding: 1rem 2rem;
   width: fit-content;
   font-size: 18px;
+  font-weight: 500;
   color: ${({ theme }) => theme.colors.secondary};
 
   @media screen and (min-width: 768px) {
@@ -68,6 +69,7 @@ const DescSubtitle = styled.p`
 const DescTitle = styled.h2`
   font-weight: 600;
   font-size: 28px;
+  font-family: var(--source-font);
 
   @media screen and (min-width: 768px) {
     font-size: 40px;
@@ -113,6 +115,7 @@ const ContentButton = styled.button`
   gap: 10px;
   color: #fbfbfb;
   font-size: 18px;
+  font-family: var(--lato-font);
   width: fit-content;
   cursor: pointer;
 
@@ -150,11 +153,11 @@ function CardItem({ reserve, descSubtitle, descTitle, imageLink }: CardItemProps
     <Card reserve={reserve}>
       <CardContent>
         <ContentDesc>
-          <DescSubtitle className={inter.className}>
+          <DescSubtitle>
             {descSubtitle}
           </DescSubtitle>
           <DescTitle>{descTitle}</DescTitle>
-          <DescParagraph className={inter.className}>
+          <DescParagraph>
             We need to button up our approach. I don't want to drain the whole
             swamp, i just want to shoot some alligators we need this overall to
             be busier and more active for technologically savvy moving the
@@ -165,23 +168,23 @@ function CardItem({ reserve, descSubtitle, descTitle, imageLink }: CardItemProps
         <ContentList>
           <List>
             <ListIcon src="checklist.svg" />
-            <ListText className={inter.className}>Sales Growth</ListText>
+            <ListText>Sales Growth</ListText>
           </List>
           <List>
             <ListIcon src="checklist.svg" />
-            <ListText className={inter.className}>
+            <ListText>
               Increase conversion rate
             </ListText>
           </List>
           <List>
             <ListIcon src="checklist.svg" />
-            <ListText className={inter.className}>
+            <ListText>
               Increase conversion rate
             </ListText>
           </List>
           <List>
             <ListIcon src="checklist.svg" />
-            <ListText className={inter.className}>
+            <ListText>
               Increase conversion rate
             </ListText>
           </List>
@@ -204,7 +207,7 @@ export default function Features() {
     <Container>
       <FeaturesWrapper>
         <FeaturesHeader>
-          <Subtitle className={inter.className}>FEATURES</Subtitle>
+          <Subtitle>FEATURES</Subtitle>
           <Title mdSize="54px" lgSize="64px">
             All the tools you need to <Highlight>scale-up</Highlight> your
             e-commerce sales in one place

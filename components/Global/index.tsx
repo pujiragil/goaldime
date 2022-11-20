@@ -23,6 +23,7 @@ interface TitleProps {
 
 export const Title = styled.h1<TitleProps>`
   color: ${({ theme }) => theme.colors.primary};
+  font-family: var(--source-font);
   font-weight: 700;
   font-size: ${({ smSize }) => smSize ? smSize : "2.5rem"};
   width: ${({ smWidth }) => smWidth ? smWidth : "100%"};
@@ -41,7 +42,12 @@ export const Title = styled.h1<TitleProps>`
 export const Subtitle = styled.p`
   font-size: 20px;
   font-weight: 500;
+  font-family: var(--inter-font);
   color: ${({ theme }) => theme.colors.subtitle};
+
+  @media screen and (min-width: 768px) {
+    font-weight: 700;
+  }
 `
 
 export const Highlight = styled.span`
@@ -66,6 +72,8 @@ export const Button = styled.button<ButtonProps>`
   background: ${({ background, theme }) => background ? background : theme.colors.secondary};
   color: ${({ color }) => color ? color : "#FFF"};
   font-size: ${({ fontSize }) => fontSize ? fontSize : "18px"};
+  font-family: var(--inter-font);
+  font-weight: 600;
 
   &.btn-show {
     display: none;

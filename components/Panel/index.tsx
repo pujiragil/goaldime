@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { inter } from "../Font";
 import { Container, Highlight, Subtitle, Title } from "../Global";
 
 const PanelWrapper = styled.section`
@@ -34,6 +33,7 @@ const PanelHeader = styled.div`
 
     &:nth-child(2) {
       grid-area: subheading;
+      text-align: left;
     }
   }
 `
@@ -41,17 +41,28 @@ const PanelHeader = styled.div`
 const SubHeading = styled.h2`
   font-weight: 700;
   font-size: 28px;
+  font-family: var(--source-font);
   color: ${({ theme }) => theme.colors.primary};
+
+  @media screen and (min-width: 768px) {
+    font-size: 40px;
+  }
 `
 
 const Paragraph = styled(Subtitle)`
-  color: #4A4A57;
+  color: ${({ theme }) => theme.colors.primary};
   font-size: 18px;
-  font-weight: 300;
+  font-weight: 400;
+
+  &.subparagraph {
+    font-size: 18px;
+    font-weight: 300;
+  }
 
   @media screen and (min-width: 768px) {
     font-weight: 400;
     font-size: 20px;
+
   }
 `
 
@@ -80,11 +91,15 @@ const Hero = styled.img`
   object-fit: cover;
 
   @media screen and (min-width: 768px) {
+    width: 90%;
+  }
+
+  @media screen and (min-width: 1024px) {
     height: 100%;
     width: auto;
     position: absolute;
     top: 0;
-    left: -80%;
+    left: -85%;
   }
 `
 
@@ -133,11 +148,18 @@ const CardTitle = styled.h3<CardTitleProps>`
   color: ${({ primary }) => primary ? "#5B93FF" : "#FAB400"};
   font-size: 24px;
   font-weight: 700;
+  font-family: var(--source-font);
 `
 
 const CardParagraph = styled(Paragraph)`
   font-weight: 400;
+  font-family: var(--inter-font);
   color: #808093;
+  font-size: 18px; 
+
+  @media screen and (min-width: 768px) {
+    width: 60%;
+  }
 `
 
 interface PanelItemProps {
@@ -153,7 +175,7 @@ function PanelItem({ primary, imageLink , title }: PanelItemProps) {
 
       <CardContent>
         <CardTitle primary={primary}>{title}</CardTitle>
-        <CardParagraph className={inter.className}>Phasellus nec meligula. Cras vel intedum nisl. Inid ante orci.</CardParagraph>
+        <CardParagraph>Phasellus nec meligula. Cras vel intedum nisl. Inid ante orci.</CardParagraph>
       </CardContent>
     </Card>
   )
@@ -164,14 +186,14 @@ export default function Panel() {
     <Container>
       <PanelWrapper>
         <PanelHeader>
-          <Subtitle className={inter.className}>CONTROL PANEL</Subtitle>
-          <Title mdSize="64px" lgSize="64px">User <Highlight>Friendly</Highlight> Control Panel</Title>
-          <Paragraph className={inter.className}>The control panel was crafted using the best design techniques to let you have control of everything</Paragraph>
+          <Subtitle>CONTROL PANEL</Subtitle>
+          <Title mdSize="54px" lgSize="64px">User <Highlight>Friendly</Highlight> Control Panel</Title>
+          <Paragraph>The control panel was crafted using the best design techniques to let you have control of everything</Paragraph>
         </PanelHeader>
 
         <PanelHeader>
           <SubHeading>We manage all those things by some different way</SubHeading>
-          <Paragraph className={inter.className}>Laboriosam aute dolor, culpa. Numquam aspernatur but ex so perspiciatis eaque sint. Architecto occaecat or veritatis but mollit so aut so irure. Do proident voluptas but non. Et consequuntur yet fugit est.</Paragraph>
+          <Paragraph className="subparagraph">Laboriosam aute dolor, culpa. Numquam aspernatur but ex so perspiciatis eaque sint. Architecto occaecat or veritatis but mollit so aut so irure. Do proident voluptas but non. Et consequuntur yet fugit est.</Paragraph>
         </PanelHeader>
 
         <PanelContent>

@@ -78,10 +78,10 @@ const PanelContent = styled(PanelHeader)`
 const PanelHero = styled.div`
   display: flex;
   justify-content: center;
+  position: relative;
 
   @media screen and (min-width: 1024px) {
     grid-area: hero;
-    position: relative;
   }
 `
 
@@ -90,16 +90,45 @@ const Hero = styled.img`
   height: auto;
   object-fit: cover;
 
+
   @media screen and (min-width: 768px) {
     width: 90%;
   }
 
   @media screen and (min-width: 1024px) {
-    height: 100%;
     width: auto;
+    height: 100%;
     position: absolute;
     top: 0;
-    left: -85%;
+    left: -190%;
+  }
+
+  @media screen and (min-width: 1074px) {
+    left: -170%;
+  }
+
+  @media screen and (min-width: 1120px) {
+    left: -150%;
+  }
+
+  @media screen and (min-width: 1174px) {
+    left: -130%;
+  }
+
+  @media screen and (min-width: 1224px) {
+    left: -110%;
+  }
+
+  @media screen and (min-width: 1274px) {
+    left: -100%
+  }
+
+  @media screen and (min-width: 1354px) {
+    left: -80%;
+  }
+
+  @media screen and (min-width: 1404px) {
+    left: -60%;
   }
 `
 

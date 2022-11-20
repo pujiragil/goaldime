@@ -17,7 +17,8 @@ const HeaderWrapper = styled.div`
 `
 
 const Paragraph = styled(Subtitle)`
-  color: #4A4A57;
+  color: ${({ theme }) => theme.colors.primary};
+  font-weight: 400;
 `
 
 const SwitchWrapper = styled.div`
@@ -34,14 +35,20 @@ const SwitchTag = styled.p`
   color: ${({ theme }) => theme.colors.primary};
 `
 
-const SwitchButton = styled.button`
+interface SwitchButtonProps {
+  switched: boolean;
+}
+
+const SwitchButton = styled.button<SwitchButtonProps>`
   border: none;
   outline: none;
   border-radius: 999px;
   width: 48px;
   height: 26px;
-  background: #D7D7DD;
+  background: ${({ switched, theme }) => switched ? theme.colors.secondary : "#D7D7DD"};
   padding: 3px 4px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
 `
 
 interface CirlceProps {
@@ -76,8 +83,8 @@ export default function Price() {
 
         <SwitchWrapper>
           <SwitchTag>Monthly</SwitchTag>
-          <SwitchButton>
-            <Circle switched={isSwitched} onClick={handleSwitch} />
+          <SwitchButton switched={isSwitched} onClick={handleSwitch}>
+            <Circle switched={isSwitched} />
           </SwitchButton>
           <SwitchTag>Annual</SwitchTag>
         </SwitchWrapper>

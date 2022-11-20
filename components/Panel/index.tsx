@@ -107,8 +107,16 @@ const Hero = styled.img`
     left: -170%;
   }
 
+  @media screen and (min-width: 1098px) {
+    left: -160%;
+  }
+
   @media screen and (min-width: 1120px) {
     left: -150%;
+  }
+
+  @media screen and (min-width: 1148px) {
+    left: -140%;
   }
 
   @media screen and (min-width: 1174px) {
@@ -123,8 +131,16 @@ const Hero = styled.img`
     left: -100%
   }
 
-  @media screen and (min-width: 1354px) {
+  @media screen and (min-width: 1344px) {
+    left: -90%;
+  }
+
+  @media screen and (min-width: 1360px) {
     left: -80%;
+  }
+
+  @media screen and (min-width: 1384px) {
+    left: -75%;
   }
 
   @media screen and (min-width: 1404px) {

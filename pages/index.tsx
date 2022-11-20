@@ -5,6 +5,7 @@ import Hero from "../components/Hero";
 import Layout from "../components/Layout";
 import Navbar from "../components/Navbar";
 import Panel from "../components/Panel";
+import Price from "../components/Price";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
       <Features />
       <MoreFeatures />
       <Panel />
+      <Price />
     </Layout>
   )
 }

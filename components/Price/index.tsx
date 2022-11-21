@@ -70,10 +70,12 @@ const Circle = styled.span<CirlceProps>`
 const CardWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 2rem;
 `;
 
 const Card = styled.div`
+  width: 100%;
   position: relative;
   font-family: var(--inter-font);
   padding: 2rem 20px 112px 20px;
@@ -82,6 +84,10 @@ const Card = styled.div`
   display: flex;
   flex-direction: column;
   gap: 60px;
+
+  @media screen and (min-width: 768px) {
+    width: 60%;
+  }
 `;
 
 const HeadlineWrapper = styled.div`
@@ -248,7 +254,7 @@ export default function Price() {
       <PriceWrapper>
         <HeaderWrapper>
           <Subtitle>OUR PRICING</Subtitle>
-          <Title>
+          <Title mdSize="54px">
             Ready to get <Highlight>started</Highlight>
           </Title>
           <Paragraph>Choose a plan tailored to your needs</Paragraph>

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import styled from "styled-components";
+import styled, { DefaultTheme, ThemeProvider } from "styled-components";
 import { Container, Highlight, Subtitle, Title } from "../Global";
 
 const PriceWrapper = styled.section`
@@ -76,18 +76,12 @@ const CardWrapper = styled.div`
 const Card = styled.div`
   position: relative;
   font-family: var(--inter-font);
-  padding: 2rem 20px 0 20px;
+  padding: 2rem 20px 112px 20px;
   border-radius: 1rem;
-  background: #d6e4ff;
+  background: ${({ theme }) => (theme.primary ? "#002F8A" : "#d6e4ff")};
   display: flex;
   flex-direction: column;
   gap: 60px;
-  color: ${({ theme }) => theme.colors.primary};
-
-  & > span {
-    display: block;
-    height: 52px;
-  }
 `;
 
 const HeadlineWrapper = styled.div`
@@ -99,6 +93,7 @@ const HeadlineWrapper = styled.div`
 const Headline = styled.p`
   font-weight: 600;
   font-size: 24px;
+  color: ${({ theme }) => theme.primary ? "#FBFBFB" : theme.colors.primary};
 `;
 
 const Desc = styled(Headline)`
@@ -119,6 +114,7 @@ const AmountWrapper = styled.div`
 const Amount = styled.h3`
   font-weight: 400;
   font-size: 80px;
+  color: ${({ theme }) => theme.primary ? "#FBFBFB" : theme.colors.primary};
 `;
 
 const CardButton = styled.button`
@@ -142,6 +138,7 @@ const CardList = styled.div`
 const ListHead = styled.p`
   font-weight: 500;
   font-size: 18px;
+  color: ${({ theme }) => theme.primary ? "#FBFBFB" : theme.colors.primary};
 `;
 
 const List = styled.div`
@@ -165,7 +162,7 @@ const ListIcon = styled.img`
 const ListName = styled.p`
   font-weight: 400;
   font-size: 1rem;
-  color: #4a4a57;
+  color: ${({ theme }) => theme.primary ? "#FBFBFB" : "#4A4A57"};
 `;
 
 const FullButton = styled.button`
@@ -181,47 +178,61 @@ const FullButton = styled.button`
   justify-content: center;
   align-items: center;
   height: 52px;
-  color: #FBFBFB;
+  color: #fbfbfb;
   font-weight: 400;
   font-size: 1rem;
-`
+`;
 
-function CardItem() {
+interface CardItemProps {
+  isPrimary: boolean;
+}
+
+function CardItem({ isPrimary }: CardItemProps) {
+  const theme: DefaultTheme = {
+    colors: {
+      primary: "#0F0F0F",
+      secondary: "#5B93FF",
+      subtitle: "#FFC327",
+    },
+    primary: isPrimary,
+  };
+
   return (
-    <Card>
-      <HeadlineWrapper>
-        <Headline>Lite</Headline>
-        <Desc>Perfect to get started</Desc>
-      </HeadlineWrapper>
-      <AmountWrapper>
-        <Amount>$11</Amount>
-        <Desc className="half">Per seat / month</Desc>
-      </AmountWrapper>
+    <ThemeProvider theme={theme}>
+      <Card>
+        <HeadlineWrapper>
+          <Headline>Lite</Headline>
+          <Desc>Perfect to get started</Desc>
+        </HeadlineWrapper>
+        <AmountWrapper>
+          <Amount>$11</Amount>
+          <Desc className="half">Per seat / month</Desc>
+        </AmountWrapper>
 
-      <CardButton>Try 7 days for free</CardButton>
+        <CardButton>Try 7 days for free</CardButton>
 
-      <CardList>
-        <ListHead>Lite includes:</ListHead>
+        <CardList>
+          <ListHead>Lite includes:</ListHead>
 
-        <List>
-          <ListItem>
-            <ListIcon src="/checklist.svg" />
-            <ListName>Create message</ListName>
-          </ListItem>
-          <ListItem>
-            <ListIcon src="/checklist.svg" />
-            <ListName>Integrate with stripe</ListName>
-          </ListItem>
-          <ListItem>
-            <ListIcon src="/checklist.svg" />
-            <ListName>Integrate with stripe</ListName>
-          </ListItem>
-        </List>
-      </CardList>
-      
-      <span></span>
-      <FullButton>See all features</FullButton>
-    </Card>
+          <List>
+            <ListItem>
+              <ListIcon src="/checklist.svg" />
+              <ListName>Create message</ListName>
+            </ListItem>
+            <ListItem>
+              <ListIcon src="/checklist.svg" />
+              <ListName>Integrate with stripe</ListName>
+            </ListItem>
+            <ListItem>
+              <ListIcon src="/checklist.svg" />
+              <ListName>Integrate with stripe</ListName>
+            </ListItem>
+          </List>
+        </CardList>
+
+        <FullButton>See all features</FullButton>
+      </Card>
+    </ThemeProvider>
   );
 }
 
@@ -252,9 +263,9 @@ export default function Price() {
         </SwitchWrapper>
 
         <CardWrapper>
-          <CardItem />
-          <CardItem />
-          <CardItem />
+          <CardItem isPrimary={false} />
+          <CardItem isPrimary={true} />
+          <CardItem isPrimary={false} />
         </CardWrapper>
       </PriceWrapper>
     </Container>

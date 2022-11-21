@@ -6,6 +6,7 @@ declare module 'styled-components' {
       primary: string;
       secondary: string;
       subtitle: string;
-    }
+    },
+    primary: boolean;
   }
 }

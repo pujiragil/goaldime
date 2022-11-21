@@ -9,6 +9,7 @@ const theme: DefaultTheme = {
     secondary: "#5B93FF",
     subtitle: "#FFC327",
   },
+  primary: false
 };
 
 export default function App({ Component, pageProps }: AppProps) {

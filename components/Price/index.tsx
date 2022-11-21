@@ -81,6 +81,7 @@ const CardWrapper = styled.div`
 
 const Card = styled.div`
   width: 100%;
+  height: 100%;
   position: relative;
   font-family: var(--inter-font);
   padding: 2rem 20px 112px 20px;
@@ -108,7 +109,7 @@ const HeadlineWrapper = styled.div`
 const Headline = styled.p`
   font-weight: 600;
   font-size: 24px;
-  color: ${({ theme }) => theme.primary ? "#FBFBFB" : theme.colors.primary};
+  color: ${({ theme }) => (theme.primary ? "#FBFBFB" : theme.colors.primary)};
 `;
 
 const Desc = styled(Headline)`
@@ -139,7 +140,7 @@ const AmountWrapper = styled.div`
 const Amount = styled.h3`
   font-weight: 400;
   font-size: 80px;
-  color: ${({ theme }) => theme.primary ? "#FBFBFB" : theme.colors.primary};
+  color: ${({ theme }) => (theme.primary ? "#FBFBFB" : theme.colors.primary)};
 
   @media screen and (min-width: 1024px) {
     line-height: 0.8;
@@ -168,7 +169,7 @@ const CardList = styled.div`
 const ListHead = styled.p`
   font-weight: 500;
   font-size: 18px;
-  color: ${({ theme }) => theme.primary ? "#FBFBFB" : theme.colors.primary};
+  color: ${({ theme }) => (theme.primary ? "#FBFBFB" : theme.colors.primary)};
 `;
 
 const List = styled.div`
@@ -192,7 +193,7 @@ const ListIcon = styled.img`
 const ListName = styled.p`
   font-weight: 400;
   font-size: 1rem;
-  color: ${({ theme }) => theme.primary ? "#FBFBFB" : "#4A4A57"};
+  color: ${({ theme }) => (theme.primary ? "#FBFBFB" : "#4A4A57")};
 `;
 
 const FullButton = styled.button`
@@ -216,9 +217,13 @@ const FullButton = styled.button`
 
 interface CardItemProps {
   isPrimary: boolean;
+  headline: string;
+  desc: string;
+  price: string;
+  listData: string[];
 }
 
-function CardItem({ isPrimary }: CardItemProps) {
+function CardItem({ isPrimary, headline, desc, price, listData }: CardItemProps) {
   const theme: DefaultTheme = {
     colors: {
       primary: "#0F0F0F",
@@ -232,11 +237,11 @@ function CardItem({ isPrimary }: CardItemProps) {
     <ThemeProvider theme={theme}>
       <Card>
         <HeadlineWrapper>
-          <Headline>Lite</Headline>
-          <Desc>Perfect to get started</Desc>
+          <Headline>{headline}</Headline>
+          <Desc>{desc}</Desc>
         </HeadlineWrapper>
         <AmountWrapper>
-          <Amount>$11</Amount>
+          <Amount>{price}</Amount>
           <Desc className="half">Per seat / month</Desc>
         </AmountWrapper>
 
@@ -246,18 +251,12 @@ function CardItem({ isPrimary }: CardItemProps) {
           <ListHead>Lite includes:</ListHead>
 
           <List>
-            <ListItem>
-              <ListIcon src="/checklist.svg" />
-              <ListName>Create message</ListName>
-            </ListItem>
-            <ListItem>
-              <ListIcon src="/checklist.svg" />
-              <ListName>Integrate with stripe</ListName>
-            </ListItem>
-            <ListItem>
-              <ListIcon src="/checklist.svg" />
-              <ListName>Integrate with stripe</ListName>
-            </ListItem>
+            {listData?.map((data, index) => (
+              <ListItem key={index}>
+                <ListIcon src="/checklist.svg" alt="checklist icon" />
+                <ListName>{data}</ListName>
+              </ListItem>
+            ))}
           </List>
         </CardList>
 
@@ -294,9 +293,27 @@ export default function Price() {
         </SwitchWrapper>
 
         <CardWrapper>
-          <CardItem isPrimary={false} />
-          <CardItem isPrimary={true} />
-          <CardItem isPrimary={false} />
+          <CardItem
+            isPrimary={false}
+            headline="Lite"
+            desc="Perfect to get started"
+            price="$11"
+            listData={["Create message", "Integrate with Stripe", "Integrate with Stripe"]}
+          />
+          <CardItem
+            isPrimary={true}
+            headline="Pro"
+            desc="Best for professionals"
+            price="$19"
+            listData={["Create message", "Integrate with Stripe", "Integrate with Stripe", "Integrate with Stripe"]}
+          />
+          <CardItem
+            isPrimary={false}
+            headline="Ultimate"
+            desc="Toolset for hard players"
+            price="$35"
+            listData={["Create message", "Create message", "Integrate with Stripe", "Integrate with Stripe"]}
+          />
         </CardWrapper>
       </PriceWrapper>
     </Container>

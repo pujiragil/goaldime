@@ -72,6 +72,11 @@ const CardWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 2rem;
+
+  @media screen and (min-width: 1024px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 `;
 
 const Card = styled.div`
@@ -87,6 +92,10 @@ const Card = styled.div`
 
   @media screen and (min-width: 768px) {
     width: 60%;
+  }
+
+  @media screen and (min-width: 1024px) {
+    width: 100%;
   }
 `;
 
@@ -109,18 +118,32 @@ const Desc = styled(Headline)`
   &.half {
     width: 35%;
   }
+
+  @media screen and (min-width: 1024px) {
+    &.half {
+      width: 100%;
+    }
+  }
 `;
 
 const AmountWrapper = styled.div`
   display: flex;
   align-items: center;
   gap: 8px;
+
+  @media screen and (min-width: 1024px) {
+    align-items: flex-end;
+  }
 `;
 
 const Amount = styled.h3`
   font-weight: 400;
   font-size: 80px;
   color: ${({ theme }) => theme.primary ? "#FBFBFB" : theme.colors.primary};
+
+  @media screen and (min-width: 1024px) {
+    line-height: 0.8;
+  }
 `;
 
 const CardButton = styled.button`
@@ -132,6 +155,7 @@ const CardButton = styled.button`
   font-size: 1rem;
   border: none;
   outline: none;
+  cursor: pointer;
 `;
 
 const CardList = styled.div`
@@ -186,6 +210,7 @@ const FullButton = styled.button`
   height: 52px;
   color: #fbfbfb;
   font-weight: 400;
+  cursor: pointer;
   font-size: 1rem;
 `;
 

@@ -19,6 +19,42 @@ const GlobalStyle = createGlobalStyle`
 
   .testimonial-swiper {
     padding: 1rem 1rem 80px 1rem;
+
+    & > .swiper-pagination {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100% !important;
+      padding: 0 1rem;
+      background: transparent;
+      gap: 2rem;
+
+      & > .swiper-pagination-bullet {
+        width: 12px;
+        height: 12px;
+        border-radius: 100%;
+        background: #BDD4FF;
+        opacity: 1;
+        scale: 1;
+        margin: 0;
+      }
+
+      & > .swiper-pagination-bullet-active {
+        width: 20px;
+        height: 20px;
+        background: ${({ theme }) => theme.colors.secondary};
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        & > .circle {
+          width: 6px;
+          height: 6px;
+          border-radius: 100%;
+          background: #FBFBFB;
+        }
+      }
+    }
   }
 `
 

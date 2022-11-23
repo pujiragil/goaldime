@@ -1,9 +1,11 @@
 import styled from "styled-components";
+import { Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Container, Highlight, Subtitle, Title } from "../Global";
 
 // swiper styles
 import "swiper/css";
+import "swiper/css/pagination";
 
 const TestimonialWrapper = styled.section`
   display: flex;
@@ -141,13 +143,25 @@ export default function Testimonial() {
 
         <TestimonialSwiper>
           <Swiper
+            modules={[Pagination]}
+            pagination={{
+              type: "custom",
+              renderCustom(swiper, current, total) {
+                let customBullet = ""
+                for (let i = 1; i <= total; i++) {
+                  if (i === current) {
+                    customBullet += '<span class="swiper-pagination-bullet swiper-pagination-bullet-active"><span class="circle"></span></span>';
+                  } else {
+                    customBullet += '<span class="swiper-pagination-bullet"></span>';
+                  }
+                }
+                return customBullet
+              },
+            }}
             className="testimonial-swiper"
             slidesPerView={1}
             spaceBetween={40}
           >
-            <SwiperSlide>
-              <TestimonialCard />
-            </SwiperSlide>
             <SwiperSlide>
               <TestimonialCard />
             </SwiperSlide>

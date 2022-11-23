@@ -16,6 +16,10 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     margin: 0;
   }
+
+  .testimonial-swiper {
+    padding: 1rem 1rem 80px 1rem;
+  }
 `
 
 export default GlobalStyle

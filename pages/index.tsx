@@ -6,6 +6,7 @@ import Layout from "../components/Layout";
 import Navbar from "../components/Navbar";
 import Panel from "../components/Panel";
 import Price from "../components/Price";
+import Testimonial from "../components/Testimonial";
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
       <MoreFeatures />
       <Panel />
       <Price />
+      <Testimonial />
     </Layout>
   )
 }

@@ -97,18 +97,25 @@ const ProfileImage = styled.img`
   border-radius: 100%;
 `;
 
-function TestimonialCard() {
+interface TestimonialCardProps {
+  title: string;
+  avatar: string;
+  name: string;
+  job: string;
+}
+
+function TestimonialCard({ title, avatar, name, job }: TestimonialCardProps) {
   return (
     <Card>
       <CardHeader>
         <CardRating>
-          <CardTitle>Incredible love it</CardTitle>
+          <CardTitle>{title}</CardTitle>
           <RatingWrapper>
-            <Rating src="/star.svg" alt="star" />
-            <Rating src="/star.svg" alt="star" />
-            <Rating src="/star.svg" alt="star" />
-            <Rating src="/star.svg" alt="star" />
-            <Rating src="/star.svg" alt="star" />
+            <Rating src="/star.svg" alt="star-icon"/>
+            <Rating src="/star.svg" alt="star-icon"/>
+            <Rating src="/star.svg" alt="star-icon"/>
+            <Rating src="/star.svg" alt="star-icon"/>
+            <Rating src="/star.svg" alt="star-icon"/>
           </RatingWrapper>
         </CardRating>
         <Paragraph>
@@ -119,11 +126,11 @@ function TestimonialCard() {
       </CardHeader>
 
       <CardProfile>
-        <ProfileImage src="/images/profile.png" alt="profile-image" />
+        <ProfileImage src={avatar} alt="profile-image" />
 
         <ProfileInformation>
-          <ProfileName>Joko Owi</ProfileName>
-          <Paragraph>Co-founder of Banteng</Paragraph>
+          <ProfileName>{name}</ProfileName>
+          <Paragraph>{job}</Paragraph>
         </ProfileInformation>
       </CardProfile>
     </Card>
@@ -147,15 +154,17 @@ export default function Testimonial() {
             pagination={{
               type: "custom",
               renderCustom(swiper, current, total) {
-                let customBullet = ""
+                let customBullet = "";
                 for (let i = 1; i <= total; i++) {
                   if (i === current) {
-                    customBullet += '<span class="swiper-pagination-bullet swiper-pagination-bullet-active"><span class="circle"></span></span>';
+                    customBullet +=
+                      '<span class="swiper-pagination-bullet swiper-pagination-bullet-active"><span class="circle"></span></span>';
                   } else {
-                    customBullet += '<span class="swiper-pagination-bullet"></span>';
+                    customBullet +=
+                      '<span class="swiper-pagination-bullet"></span>';
                   }
                 }
-                return customBullet
+                return customBullet;
               },
             }}
             className="testimonial-swiper"
@@ -163,13 +172,13 @@ export default function Testimonial() {
             spaceBetween={40}
           >
             <SwiperSlide>
-              <TestimonialCard />
+              <TestimonialCard title="Awesome Platform" avatar="/images/profile.png" name="Joko Owi" job="Co-founder of Banteng" />
             </SwiperSlide>
             <SwiperSlide>
-              <TestimonialCard />
+              <TestimonialCard title="Incredible love it" avatar="/images/profile.png" name="Joko Ndak Tau" job="Yo ndak tau job saya" />
             </SwiperSlide>
             <SwiperSlide>
-              <TestimonialCard />
+              <TestimonialCard title="Great platform" avatar="/images/profile.png" name="The Joko" job="kerjo kerjo kerjo" />
             </SwiperSlide>
           </Swiper>
         </TestimonialSwiper>

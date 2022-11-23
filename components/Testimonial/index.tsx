@@ -155,7 +155,7 @@ export default function Testimonial() {
       <TestimonialWrapper>
         <TestimonialHeader>
           <Subtitle>TESTIMONIAL</Subtitle>
-          <Title>
+          <Title mdSize="54px" lgSize="64px" >
             People <Highlight>talk about</Highlight> us
           </Title>
         </TestimonialHeader>

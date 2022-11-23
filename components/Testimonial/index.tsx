@@ -1,11 +1,12 @@
 import styled from "styled-components";
-import { Pagination } from "swiper";
+import { Pagination, Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Container, Highlight, Subtitle, Title } from "../Global";
 
 // swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
+import "swiper/css/autoplay"
 
 const TestimonialWrapper = styled.section`
   display: flex;
@@ -156,7 +157,7 @@ export default function Testimonial() {
 
         <TestimonialSwiper>
           <Swiper
-            modules={[Pagination]}
+            modules={[Pagination, Autoplay]}
             pagination={{
               type: "custom",
               renderCustom(swiper, current, total) {
@@ -173,6 +174,8 @@ export default function Testimonial() {
                 return customBullet;
               },
             }}
+            autoplay={{ delay: 2000 }}
+            loop={true}
             className="testimonial-swiper"
             slidesPerView="auto"
             spaceBetween={40}
@@ -182,6 +185,10 @@ export default function Testimonial() {
               768: {
                 slidesPerView: 2,
                 spaceBetween: 300
+              },
+              1024: {
+                slidesPerView: 3,
+                spaceBetween: 100
               }
             }}
           >

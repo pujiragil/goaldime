@@ -24,6 +24,7 @@ const TestimonialHeader = styled.div`
 const TestimonialSwiper = styled.div``;
 
 const Card = styled.div`
+  cursor: pointer;
   font-family: var(--inter-font);
   display: flex;
   flex-direction: column;
@@ -32,6 +33,11 @@ const Card = styled.div`
   border-radius: 12px;
   box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.15);
   background: #fbfbfb;
+
+  @media screen and (min-width: 768px) {
+    padding: 60px 40px;
+    width: 450px;
+  }
 `;
 
 const CardHeader = styled.div`
@@ -168,8 +174,16 @@ export default function Testimonial() {
               },
             }}
             className="testimonial-swiper"
-            slidesPerView={1}
+            slidesPerView="auto"
             spaceBetween={40}
+            centeredSlides={true}
+            watchOverflow={true}
+            breakpoints={{
+              768: {
+                slidesPerView: 2,
+                spaceBetween: 300
+              }
+            }}
           >
             <SwiperSlide>
               <TestimonialCard title="Awesome Platform" avatar="/images/profile.png" name="Joko Owi" job="Co-founder of Banteng" />

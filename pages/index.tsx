@@ -5,6 +5,7 @@ import Hero from "../components/Hero";
 import Layout from "../components/Layout";
 import Navbar from "../components/Navbar";
 import Panel from "../components/Panel";
+import Patner from "../components/Patner";
 import Price from "../components/Price";
 import Testimonial from "../components/Testimonial";
 
@@ -19,6 +20,7 @@ export default function Home() {
       <Panel />
       <Price />
       <Testimonial />
+      <Patner />
     </Layout>
   )
 }

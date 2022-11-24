@@ -17,7 +17,7 @@ const TestimonialWrapper = styled.section`
 const TestimonialHeader = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 24px;
   text-align: center;
   align-items: center;
 `;

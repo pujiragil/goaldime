@@ -5,6 +5,10 @@ const PatnerWrapper = styled.section`
   display: flex;
   flex-direction: column;
   gap: 60px;
+
+  @media screen and (min-width: 768px) {
+    gap: 100px;
+  }
 `
 
 const PatnerHeader = styled.div`
@@ -18,6 +22,11 @@ const PatnerHeader = styled.div`
 const PatnerBody = styled.div`
   display: grid;
   grid-template-columns: 1fr;
+
+  @media screen and (min-width: 1024px) {
+    grid-auto-columns: minmax(0, 1fr);
+    grid-auto-flow: column; 
+  }
 `
 
 const PatnerBrand = styled.div`
@@ -25,13 +34,27 @@ const PatnerBrand = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  border-bottom: 0.5px solid #BDD4FF;
+  border-bottom: 1px solid #BDD4FF;
+  width: 100%;
+
+  @media screen and (min-width: 1024px) {
+    border-bottom: unset;
+    border-right: 1px solid #BDD4FF;
+
+    &:last-child {
+      border-right: unset;
+    }
+  }
 `
 
 const BrandImage = styled.img`
   height: 45;
   width: auto;
   object-fit: cover;
+
+  @media screen and (min-width: 1024px) {
+    /* height: 100%; */
+  }
 `
 
 export default function Patner() {

@@ -20,6 +20,10 @@ const GlobalStyle = createGlobalStyle`
   .testimonial-swiper {
     padding: 1rem 1rem 80px 1rem;
 
+    & > .swiper-wrapper .swiper-slide {
+      height: auto;
+    }
+
     & > .swiper-pagination {
       display: flex;
       justify-content: center;

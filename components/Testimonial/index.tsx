@@ -30,14 +30,19 @@ const Card = styled.div`
   display: flex;
   flex-direction: column;
   gap: 40px;
-  padding: 20px;
+  padding: 30px;
   border-radius: 12px;
   box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.15);
   background: #fbfbfb;
+  height: 100%;
 
   @media screen and (min-width: 768px) {
     padding: 60px 40px;
-    width: 450px;
+    width: 100%;
+  }
+
+  @media screen and (min-width: 1024px) {
+    width: 100%;
   }
 `;
 
@@ -189,11 +194,11 @@ export default function Testimonial() {
             breakpoints={{
               768: {
                 slidesPerView: 2,
-                spaceBetween: 300
+                spaceBetween: 20
               },
               1024: {
                 slidesPerView: 3,
-                spaceBetween: 100
+                spaceBetween: 20
               }
             }}
           >

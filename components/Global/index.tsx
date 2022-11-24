@@ -1,14 +1,20 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
-  padding: 80px 1rem;
+interface ContainerProps {
+  smPadding?: string;
+  mdPadding?: string;
+  lgPadding?: string;
+}
+
+export const Container = styled.div<ContainerProps>`
+  padding: ${({ smPadding }) => smPadding ? smPadding : "80px 1rem"};
 
   @media screen and (min-width: 768px) {
-    padding: 100px 20px;
+    padding: ${({ mdPadding }) => mdPadding ? mdPadding : "100px 20px"};
   }
 
   @media screen and (min-width: 1024px) {
-    padding: 100px 2rem;
+    padding: ${({ lgPadding }) => lgPadding ? lgPadding : "100px 2rem"};
   }
 `
 

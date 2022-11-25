@@ -11,9 +11,15 @@ const Footer = styled.main`
   padding: 40px 0 115px;
   gap: 130px;
   border-bottom: 1px solid #c2c2cb;
+  
+  @media screen and (min-width: 1024px) {
+    flex-direction: row;
+    align-items: flex-start;
+  }
 `;
 
 const FooterHead = styled.div`
+  flex: 1;
   display: flex;
   flex-direction: column;
   gap: 40px;
@@ -36,9 +42,18 @@ const Desc = styled.p`
   font-family: var(--inter-font);
   font-size: 1rem;
   font-weight: 400;
+
+  @media screen and (min-width: 768px) {
+    width: 40%;
+  }
+
+  @media screen and (min-width: 1024px) {
+    width: 100%;
+  }
 `;
 
 const FooterLinkWrapper = styled.div`
+  flex: 1;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -55,6 +70,7 @@ const LinkItem = styled.a`
   color: #fbfbfb;
   font-size: 1rem;
   font-weight: 400;
+  cursor: pointer;
 `;
 
 const FooterInformation = styled.div`
@@ -118,7 +134,7 @@ export default function FooterSection() {
           </FooterInformation>
           <FooterInformation>
             <InformationIcon src="/location.svg" alt="icon" />
-            <Information>14/8 East virginia, california, USA</Information>
+            <Information>14/8 East Java, Ponorogo</Information>
           </FooterInformation>
         </FooterLinkWrapper>
       </Footer>

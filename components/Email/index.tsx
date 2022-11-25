@@ -7,7 +7,12 @@ const EmailWrapper = styled.main`
   background: ${({ theme }) => theme.colors.secondary};
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 60px;
+
+  @media screen and (min-width: 768px) {
+    padding: 100px 0;
+  }
 `;
 
 const EmailContent = styled.div`
@@ -24,6 +29,10 @@ const ContentTitle = styled.h2`
   font-weight: 700;
   font-size: 40px;
   color: #fbfbfb;
+
+  @media screen and (min-width: 768px) {
+    font-size: 80px;
+  }
 `;
 
 const ContentDesc = styled.p`
@@ -35,6 +44,16 @@ const ContentDesc = styled.p`
 
 const EmailForm = styled.form`
   padding: 0 1rem;
+  max-width: 400px;
+  width: 100%;
+
+  @media screen and (min-width: 768px) {
+    max-width: 70%;
+  }
+
+  @media screen and (min-width: 1024px) {
+    max-width: 50%;
+  }
 `;
 
 const FormLabel = styled.label`
@@ -51,7 +70,7 @@ const FormInput = styled.input`
 
   &[type="email"] {
     border-radius: 999px;
-    padding: 1rem 20px;
+    padding: 20px;
     outline: none;
     border: none;
     width: 100%;
@@ -60,17 +79,21 @@ const FormInput = styled.input`
   &[type="submit"] {
     background: #0047d0;
     color: #fbfbfb;
-    padding: 1rem 22px;
+    padding: 20px 24px;
     border: none;
     outline: none;
     cursor: pointer;
     border-radius: 999px;
+
+    @media screen and (min-width: 768px) {
+      padding: 20px 2rem;
+    }
   }
 `;
 
 export default function Email() {
   return (
-    <Container smPadding="100px 16px">
+    <Container smPadding="100px 16px" mdPadding="200px 20px 100px 20px" lgPadding="200px 2rem 100px 2rem">
       <EmailWrapper>
         <EmailContent>
           <ContentTitle>Sign up for our newsletter</ContentTitle>

@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Email from "../Email";
 import FooterSection from "./Footer";
+import SocialMedia from "./SocialMedia";
 
 const Background = styled.footer`
   background: ${({ theme }) => theme.colors.primary};
@@ -19,6 +20,7 @@ export default function Footer() {
       <Container>
         <Email />
         <FooterSection />
+        <SocialMedia />
       </Container>
     </Background>
   )

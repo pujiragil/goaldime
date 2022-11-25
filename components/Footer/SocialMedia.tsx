@@ -5,12 +5,22 @@ const SocialWrapper = styled.main`
   display: flex;
   flex-direction: column;
   gap: 20px;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+  }
 `;
 
 const IconWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+
+  @media screen and (min-width: 768px) {
+    flex: 1;
+    justify-content: flex-start;
+    gap: 40px;
+  }
 `;
 
 const IconLink = styled.a`
@@ -30,6 +40,11 @@ const Copyright = styled.p`
   font-size: 14px;
   color: #fbfbfb;
   text-align: center;
+  
+  @media screen and (min-width: 768px) {
+    flex: 1;
+    text-align: right;
+  }
 `;
 
 interface SocialIconProps {
@@ -48,7 +63,7 @@ const SocialIcon = ({ href, src, alt }: SocialIconProps) => {
 
 export default function SocialMedia() {
   return (
-    <Container smPadding="20px 1rem 2rem">
+    <Container smPadding="20px 1rem 2rem" mdPadding="2rem 20px" lgPadding="2rem">
       <SocialWrapper>
         <IconWrapper>
           <SocialIcon

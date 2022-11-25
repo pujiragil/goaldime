@@ -3,6 +3,14 @@ import { Button } from "../Global";
 
 const Container = styled.footer`
   padding: 0 1rem;
+
+  @media screen and (min-width: 768px) {
+    padding: 0 20px;
+  }
+
+  @media screen and (min-width: 1024px) {
+    padding: 0 2rem;
+  }
 `;
 
 const Footer = styled.main`
@@ -24,6 +32,10 @@ const FooterHead = styled.div`
   display: flex;
   flex-direction: column;
   gap: 40px;
+
+  @media screen and (min-width: 1024px) {
+    flex: 2;
+  }
 `;
 
 const HeadContent = styled.div`

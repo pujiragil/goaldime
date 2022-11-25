@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Button } from "../Global";
 
 const Container = styled.footer`
-  padding: 1rem;
+  padding: 0 1rem;
 `;
 
 const Footer = styled.main`
@@ -13,6 +13,7 @@ const Footer = styled.main`
   border-bottom: 1px solid #c2c2cb;
   
   @media screen and (min-width: 1024px) {
+    padding: 40px 0;
     flex-direction: row;
     align-items: flex-start;
   }
@@ -71,6 +72,7 @@ const LinkItem = styled.a`
   font-size: 1rem;
   font-weight: 400;
   cursor: pointer;
+  width: fit-content;
 `;
 
 const FooterInformation = styled.div`

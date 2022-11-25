@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Email from "../Email";
+import FooterSection from "./Footer";
 
 const Background = styled.footer`
   background: ${({ theme }) => theme.colors.primary};
@@ -17,6 +18,7 @@ export default function Footer() {
     <Background>
       <Container>
         <Email />
+        <FooterSection />
       </Container>
     </Background>
   )
